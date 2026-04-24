@@ -1,0 +1,15 @@
+name: Test Variable Access
+on:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print variable
+        run: |
+          if [ -z "${{ vars.TEST_VAR }}" ]; then
+            echo "TEST_VAR is EMPTY - no access"
+          else
+            echo "TEST_VAR = ${{ vars.TEST_VAR }}"
+          fi
